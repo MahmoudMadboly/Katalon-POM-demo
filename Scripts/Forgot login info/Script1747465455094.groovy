@@ -23,27 +23,27 @@ int time = 5
 try {
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Forgot login info/Forgot login info button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Forgot login info/Forgot login info button'),
 		 findTestObject('Object Repository/Forgot login info/Forgot login info heading'),
 		 time)
 	
 	
 	//fetch test data from test sheet
-	String firsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "First Name", GlobalVariable.SecondRowNo)
+	String firsName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "First Name", GlobalVariable.SecondRowNo)
 	
-	String lastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Last Name", GlobalVariable.SecondRowNo)
+	String lastName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Last Name", GlobalVariable.SecondRowNo)
 	
-	String address = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Address", GlobalVariable.SecondRowNo)
+	String address = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Address", GlobalVariable.SecondRowNo)
 	
-	String city = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "City", GlobalVariable.SecondRowNo)
+	String city = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "City", GlobalVariable.SecondRowNo)
 	
-	String state = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "State", GlobalVariable.SecondRowNo)
+	String state = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "State", GlobalVariable.SecondRowNo)
 	
-	String zipCode = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Zip Code", GlobalVariable.SecondRowNo)
+	String zipCode = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Zip Code", GlobalVariable.SecondRowNo)
 	
-	String ssn = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "SSN", GlobalVariable.FirstRowNo)
+	String ssn = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Sign up", "SSN", GlobalVariable.FirstRowNo)
 	
-	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable)
+	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("", "", GlobalVariable)
 	
 	
 	//insert test data in test fields

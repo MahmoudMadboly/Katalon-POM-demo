@@ -23,27 +23,27 @@ int time = 5
 try{
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'),
 	findTestObject('Object Repository/Register/Sign up heading'),
 	time)
 
 
 	//fetch test data from test data sheet & store it in a string
-	String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "First Name", GlobalVariable.SecondRowNo)
+	String newFirsName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "First Name", GlobalVariable.SecondRowNo)
 
-	String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Last Name", GlobalVariable.SecondRowNo)
+	String newLastName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Last Name", GlobalVariable.SecondRowNo)
 
-	String newAddress = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Address", GlobalVariable.SecondRowNo)
+	String newAddress = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Address", GlobalVariable.SecondRowNo)
 
-	String newCity = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "City", GlobalVariable.SecondRowNo)
+	String newCity = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "City", GlobalVariable.SecondRowNo)
 
-	String newState = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "State", GlobalVariable.SecondRowNo)
+	String newState = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "State", GlobalVariable.SecondRowNo)
 
-	String newZipCode = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Zip Code", GlobalVariable.SecondRowNo)
+	String newZipCode = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Zip Code", GlobalVariable.SecondRowNo)
 
-	String newPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Phone", GlobalVariable.SecondRowNo)
+	String newPhone = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Phone", GlobalVariable.SecondRowNo)
 
-	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
+	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
 
 	// Add only the fields you want to update
 	Map<String, String> fullUpdate = [
@@ -57,13 +57,13 @@ try{
 	]
 
 	//do partial update
-	CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(fullUpdate)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.updateProfileInfo'(fullUpdate)
 
 	//click on update button
 	WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
 
 	//validate test case is passed
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
 
 }catch(Exception e){
 

@@ -25,7 +25,7 @@ int time = 10
 try {
 
 	//go to products end point  & validate the screen header
-	CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Forum/Forum button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Forum/Forum button'),
 			time,
 			"Parasoft Forums",
 			"Site link", GlobalVariable.FirstRowNo,

@@ -24,7 +24,7 @@ int time = 10
 try {
 	
 	//go to location end point & validate the screen header
-	CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Locations/Locations button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Locations/Locations button'),
 		 time,
 		  "Locations",
 		   "location site link",

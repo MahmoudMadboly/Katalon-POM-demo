@@ -26,16 +26,16 @@ int time = 5
 try{
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'),
 		findTestObject('Object Repository/Register/Sign up heading'),
 		time)
 	
 	//fetch test data from test data sheet & store it in a string
-	String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "First Name", GlobalVariable.FirstRowNo)
+	String newFirsName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "First Name", GlobalVariable.FirstRowNo)
 	
-	String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Last Name", GlobalVariable.FirstRowNo)
+	String newLastName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Last Name", GlobalVariable.FirstRowNo)
 	
-	String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
+	String successMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
 	
 	// Add only the fields you want to update
 	Map<String, String> partialUpdate = [
@@ -43,11 +43,11 @@ try{
 		lastName: newLastName
 	]
 	
-	CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(partialUpdate)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.updateProfileInfo'(partialUpdate)
 	
 	WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
 	
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
 
 }catch(Exception e){
 

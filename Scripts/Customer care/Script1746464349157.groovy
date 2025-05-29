@@ -25,20 +25,20 @@ int time = 5
 try {
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Customer care/Customer care button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Customer care/Customer care button'),
 			findTestObject('Object Repository/Customer care/Customer care heading'),
 			time)
 
 	//get test data from test sheet
-	String customerName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer name", GlobalVariable.FirstRowNo)
+	String customerName = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Customer Care", "Customer name", GlobalVariable.FirstRowNo)
 
-	String customerEmail = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer email", GlobalVariable.FirstRowNo)
+	String customerEmail = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Customer Care", "Customer email", GlobalVariable.FirstRowNo)
 
-	String customerPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer phone", GlobalVariable.FirstRowNo)
+	String customerPhone = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Customer Care", "Customer phone", GlobalVariable.FirstRowNo)
 
-	String message = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Message", GlobalVariable.FirstRowNo)
+	String message = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Customer Care", "Message", GlobalVariable.FirstRowNo)
 
-	String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer care_Success message", GlobalVariable.FirstRowNo)
+	String successMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Customer Care", "Customer care_Success message", GlobalVariable.FirstRowNo)
 
 	//insert test data in test fields
 	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer name'), customerName)
@@ -53,7 +53,7 @@ try {
 	WebUI.click(findTestObject('Object Repository/Customer care/Send to customer care button'))
 
 	//validate test case is passed
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Customer care/Success message'), time, successMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Customer care/Success message'), time, successMessage)
 
 }catch(Exception e) {
 

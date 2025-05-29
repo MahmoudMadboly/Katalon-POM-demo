@@ -27,14 +27,14 @@ int time = 5
 try{
 
 	//step1: will enter to open transfer fund screen
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
 	
 	//verify that i am in the right screen
 	//WebUI.verifyElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund heading'), time)
 	
-	String transfer_Amount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Transfer fund","Transfer amount" , GlobalVariable.FirstRowNo)
+	String transfer_Amount = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Transfer fund","Transfer amount" , GlobalVariable.FirstRowNo)
 	
-	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Transfer fund","Transfer fund_success message" , GlobalVariable.FirstRowNo)
+	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Transfer fund","Transfer fund_success message" , GlobalVariable.FirstRowNo)
 	
 	//enter an amount to be transferred
 	WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), transfer_Amount)
@@ -55,7 +55,7 @@ try{
 	WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer button'))
 	
 	//validate test case is passed
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), time, scenarioSuccessMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), time, scenarioSuccessMessage)
 	
 
 }catch(Exception e){

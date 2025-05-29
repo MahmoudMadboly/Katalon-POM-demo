@@ -27,7 +27,7 @@ int time = 5
 try{
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Log out/Log out button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Log out/Log out button'),
 			findTestObject('Object Repository/Register/Register button'),
 			time)
 

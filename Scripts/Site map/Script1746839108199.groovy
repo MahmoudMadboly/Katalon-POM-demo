@@ -27,7 +27,7 @@ int time = 5
 try{
 	
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Map site/Site map button')
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Map site/Site map button')
 			,findTestObject('Object Repository/Map site/Header'),time
 			)
 
@@ -38,10 +38,10 @@ try{
 	String [] expectedAccountServicesList = ["Open New Account","Accounts Overview","Transfer Funds","Bill Pay","Find Transactions","Update Contact Info","Request Loan","Log Out"]
 
 	// get actual product list values & compare them with the expected list
-	CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Solutions list'), expectedProdusctList, time)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Solutions list'), expectedProdusctList, time)
 
 	// get actual Account Services list values & compare them with the expected list
-	CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Account Services list'), expectedAccountServicesList, time)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Account Services list'), expectedAccountServicesList, time)
 
 
 }catch(Exception e){

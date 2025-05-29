@@ -15,7 +15,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.BillPay
+
 import org.openqa.selenium.Keys as Keys
 
 
@@ -24,56 +26,43 @@ int time = 5
 try {
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Bill pay/Bill pay button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Bill pay/Bill pay button'),
 			findTestObject('Object Repository/Bill pay/Bill Payment Service heading'),
 			time)
 
 	//get test data from test sheet
-	String payee_Name = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Payee Name", GlobalVariable.FirstRowNo)
+	String payee_Name = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Payee Name", GlobalVariable.FirstRowNo)
 
-	String address = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Address", GlobalVariable.FirstRowNo)
+	String address = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Address", GlobalVariable.FirstRowNo)
 
-	String city = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "City", GlobalVariable.FirstRowNo)
+	String city = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "City", GlobalVariable.FirstRowNo)
 
-	String state = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "State", GlobalVariable.FirstRowNo)
+	String state = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "State", GlobalVariable.FirstRowNo)
 
-	String zip_Code = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Zip Code", GlobalVariable.FirstRowNo)
+	String zip_Code = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Zip Code", GlobalVariable.FirstRowNo)
 
-	String phone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Phone", GlobalVariable.FirstRowNo)
+	String phone = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Phone", GlobalVariable.FirstRowNo)
 
-	String account = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Account", GlobalVariable.FirstRowNo)
+	String account = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Account", GlobalVariable.FirstRowNo)
 
-	String verify_Account = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Verify Account", GlobalVariable.FirstRowNo)
+	String verify_Account = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Verify Account", GlobalVariable.FirstRowNo)
 
-	String amount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Amount", GlobalVariable.FirstRowNo)
+	String amount = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Amount", GlobalVariable.FirstRowNo)
 
-	String PayBillSuccessMeaage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Pay bill", "Sucees Message", GlobalVariable.FirstRowNo)
+	String PayBillSuccessMeaage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Pay bill", "Sucees Message", GlobalVariable.FirstRowNo)
 
 
-	//insert data in the fields
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Payee Name'), payee_Name)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay address'), address)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay city'), city)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay state'), state)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Pay bill zip code'), zip_Code)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay phone'), phone)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Pay bill account'), account)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay Verify Account'), verify_Account)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay amount'), amount)
-
+	//initiate an obect of BillPay class
+	BillPay billPay = new BillPay()
+	
+	//call payBill method to set test data
+	billPay.payBill(payee_Name, address, city, state, zip_Code, phone, account, verify_Account, amount)
+	
 	//click on send button to perform payment process
-	WebUI.click(findTestObject('Object Repository/Bill pay/Send payment'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.clickOnbutton'(findTestObject('Object Repository/Bill pay/Send payment'))
 
 	//validate test case is passed
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, PayBillSuccessMeaage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, PayBillSuccessMeaage)
 
 }catch(Exception e) {
 

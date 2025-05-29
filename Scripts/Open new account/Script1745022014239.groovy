@@ -23,7 +23,7 @@ int time = 3
 try{
 
 	//step1: will enter to open a new account screen
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Open new account/Open New account button'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Open new account/Open New account button'))
 	
 	//step2: chech that we are in the right page
 	WebUI.verifyElementPresent(findTestObject('Object Repository/Open new account/Open new account heading'), time)
@@ -38,13 +38,13 @@ try{
 	WebUI.click(findTestObject('Object Repository/Open new account/Save new account button'))
 	
 	//get & store the created account no.
-	CustomKeywords.'keywordContainer.HelperKeywords.storeInfo'(findTestObject('Object Repository/Open new account/newly created account number'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.storeInfo'(findTestObject('Object Repository/Open new account/newly created account number'))
 	
 	//get success message value from test data sheet
-	String AccountCreatedSuccessfully = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Open new account", "Account created success message", GlobalVariable.FirstRowNo)
+	String AccountCreatedSuccessfully = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Open new account", "Account created success message", GlobalVariable.FirstRowNo)
 	
 	//step6: verify that the account created successfully
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Open new account/account added_success message'), time, AccountCreatedSuccessfully)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Open new account/account added_success message'), time, AccountCreatedSuccessfully)
 
 }catch(Exception e){
 

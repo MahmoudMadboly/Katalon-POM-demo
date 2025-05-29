@@ -6,6 +6,7 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
 import static org.junit.Assert.assertArrayEquals
+import static org.junit.Assert.assertEquals
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -31,9 +32,11 @@ import javassist.bytecode.stackmap.BasicBlock.Catch
 import org.apache.poi.ss.usermodel.*
 import org.apache.poi.ss.usermodel.DateUtil
 import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
 import org.testng.Assert
 
-public class HelperKeywords {
+public class PageBaseKeyword {
 
 	String firstName
 	String lastName
@@ -131,17 +134,6 @@ public class HelperKeywords {
 	}
 
 
-	/*
-	 @Keyword
-	 //verify find transaction scenario successfully done
-	 def verifyFindTransactionScnario(TestObject object,String sheetName , String coulumnName, int rowIndex) {
-	 //get transaction result text fron test data sheet
-	 String transactionResultText = getTestData(sheetName, coulumnName, rowIndex)
-	 //verify transaction result displayed successfully
-	 WebUI.verifyElementText(object, transactionResultText)
-	 }
-	 */
-
 	//check fields should be updated & update them either partially or fully
 	@Keyword
 	def updateProfileInfo(Map<String, String> profileData) {
@@ -171,7 +163,12 @@ public class HelperKeywords {
 
 		WebUI.waitForElementVisible(testobject, time)
 
-		WebUI.verifyElementText(testobject, successMessage)
+		WebElement testElement = WebUiCommonHelper.findWebElement(testobject, time)
+
+		String actualResult = testElement.getText()
+
+		assertEquals(actualResult, successMessage)
+		//WebUI.verifyElementText(testobject, successMessage)
 	}
 
 
@@ -231,5 +228,22 @@ public class HelperKeywords {
 		String homePageHeader = getTestData(headerSheetName, headerCoulmnName, headerRowIndex)
 
 		WebUI.verifyElementText(headerObject, homePageHeader)
+	}
+
+	//generic method to click on a button
+	@Keyword
+	def clickOnbutton(TestObject button) {
+
+		WebUI.click(button)
+	}
+
+
+	//generic wait explicit mechanism
+	@Keyword
+	def waitExplicitly() {
+
+		WebDriverWait wait = new WebDriverWait()
+
+		wait.until(ExpectedConditions)
 	}
 }

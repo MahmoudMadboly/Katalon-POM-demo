@@ -29,15 +29,15 @@ int time = 5
 try {
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Find transaction/Find Transactions button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Find transaction/Find Transactions button'),
 			findTestObject('Object Repository/Find transaction/Find transaction heading'),
 			time)
 
 	//select the right acount id
-	CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
 
 	//fetch the related test data
-	String fetchedData_dateFrom = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transaction date from", GlobalVariable.FirstRowNo)
+	String fetchedData_dateFrom = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Find transaction", "Transaction date from", GlobalVariable.FirstRowNo)
 
 
 	//verify the fetched data
@@ -47,7 +47,7 @@ try {
 
 	}
 
-	String fetchedData_dateTo = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transaction date to", GlobalVariable.FirstRowNo)
+	String fetchedData_dateTo = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Find transaction", "Transaction date to", GlobalVariable.FirstRowNo)
 
 	//verify the fetched data
 	if(fetchedData_dateTo == null) {
@@ -57,9 +57,9 @@ try {
 	}
 
 	//check test data if date format or normal string format
-	String finalData_dateFrom = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData_dateFrom)
+	String finalData_dateFrom = CustomKeywords.'keywordContainer.PageBaseKeyword.checkDataIfDate'(fetchedData_dateFrom)
 
-	String finalData_dateTo = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData_dateTo)
+	String finalData_dateTo = CustomKeywords.'keywordContainer.PageBaseKeyword.checkDataIfDate'(fetchedData_dateTo)
 
 	// Verify processed data
 	if (finalData_dateFrom == null) {
@@ -79,10 +79,10 @@ try {
 
 	WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date Range_toDate'), finalData_dateTo)
 
-	String scnarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
+	String scnarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
 
 	//verify transaction result displayed successfully
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)
 
 }catch(Exception e) {
 

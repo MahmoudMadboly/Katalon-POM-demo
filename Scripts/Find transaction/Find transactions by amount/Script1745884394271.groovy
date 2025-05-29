@@ -29,17 +29,17 @@ int time = 5
 try {
 
 	//navigate to the target screen & wait till screen header appear
-	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Find transaction/Find Transactions button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Find transaction/Find Transactions button'),
 			findTestObject('Object Repository/Find transaction/Find transaction heading'),
 			time)
 
 	//select the right acount id
-	CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
 
 	//fetch the related test data
-	String fetchedAmount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transfer amount", GlobalVariable.FirstRowNo)
+	String fetchedAmount = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Find transaction", "Transfer amount", GlobalVariable.FirstRowNo)
 
-	String scnarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
+	String scnarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
 
 
 	//verify the fetched data
@@ -51,7 +51,7 @@ try {
 
 
 	//check test data if date format or normal string format
-	String finalAmount = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedAmount)
+	String finalAmount = CustomKeywords.'keywordContainer.PageBaseKeyword.checkDataIfDate'(fetchedAmount)
 
 
 	// Verify processed data
@@ -66,7 +66,7 @@ try {
 	WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find transaction button_findByAmount'), finalAmount)
 
 	//verify transaction result displayed successfully
-	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)
 
 }catch(Exception e) {
 

@@ -23,7 +23,7 @@ int time = 10
 try {
 	
 	//go to products end point  & validate the screen header
-	CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Products/Products button'),
+	CustomKeywords.'keywordContainer.PageBaseKeyword.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Products/Products button'),
 		 time,
 		  "Products",
 		   "Productss site link",
