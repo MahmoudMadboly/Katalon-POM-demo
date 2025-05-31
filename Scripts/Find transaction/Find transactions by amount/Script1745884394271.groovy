@@ -20,7 +20,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.FindTransactionPage
+
 import org.openqa.selenium.Keys as Keys
 
 
@@ -61,9 +63,11 @@ try {
 
 	}
 
+	//initiate an object from FindTransactionPage class
+	FindTransactionPage transactionCriteria = new FindTransactionPage()
 
 	//enter test data in test field
-	WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find transaction button_findByAmount'), finalAmount)
+	transactionCriteria.fillOutTransactionCriteria(findTestObject('Object Repository/Find transaction/Find transaction button_findByAmount'), finalAmount)
 
 	//verify transaction result displayed successfully
 	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)

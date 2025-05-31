@@ -20,7 +20,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.FindTransactionPage
+
 import org.openqa.selenium.Keys as Keys
 
 
@@ -74,10 +76,15 @@ try {
 
 	}
 
-	//enter test data in test field
-	WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date Range_fromDate'), finalData_dateFrom)
 
-	WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date Range_toDate'), finalData_dateTo)
+	//initiate an object from FindTransactionPage class
+	FindTransactionPage transactionCriteria = new FindTransactionPage()
+
+
+	//enter test data in test field
+	transactionCriteria.fillOutTransactionCriteria(findTestObject('Object Repository/Find transaction/Find by Date Range_fromDate'), finalData_dateFrom)
+
+	transactionCriteria.fillOutTransactionCriteria(findTestObject('Object Repository/Find transaction/Find by Date Range_toDate'), finalData_dateTo)
 
 	String scnarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
 

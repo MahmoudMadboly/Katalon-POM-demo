@@ -49,6 +49,17 @@ public class PageBaseKeyword {
 
 
 
+	//generic wait explicit mechanism
+	@Keyword
+	def waitExplicitly() {
+
+		WebDriverWait wait = new WebDriverWait()
+
+		wait.until(ExpectedConditions)
+	}
+
+
+
 	//Navigate to a feature (UI element)
 	@Keyword
 	def navigateToFeature(TestObject targetFeatureToBeOpened, TestObject validatedObject , int time) {
@@ -215,6 +226,7 @@ public class PageBaseKeyword {
 
 		WebUI.click(hyperLinkObject)
 
+		//need to be enhanced by using new implemented wait mechanism
 		WebUI.delay(time)
 
 		String actualURL = WebUI.getUrl()
@@ -235,15 +247,5 @@ public class PageBaseKeyword {
 	def clickOnbutton(TestObject button) {
 
 		WebUI.click(button)
-	}
-
-
-	//generic wait explicit mechanism
-	@Keyword
-	def waitExplicitly() {
-
-		WebDriverWait wait = new WebDriverWait()
-
-		wait.until(ExpectedConditions)
 	}
 }

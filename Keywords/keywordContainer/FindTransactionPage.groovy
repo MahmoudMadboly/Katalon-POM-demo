@@ -20,27 +20,12 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
 
-public class BillPay {
-
-	void payBill(String payee_Name, String address, String city, String state,String zip_Code, String phone,  String account,  String verify_Account, String amount) {
-
-		//insert data in the fields
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Payee Name'), payee_Name)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay address'), address)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay city'), city)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay state'), state)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Pay bill zip code'), zip_Code)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay phone'), phone)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Pay bill account'), account)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay Verify Account'), verify_Account)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay amount'), amount)
+public class FindTransactionPage {
+	
+	void fillOutTransactionCriteria(TestObject object , String amount) {
+		
+		//enter test data in test field
+		WebUI.sendKeys(object, amount)
+		
 	}
 }

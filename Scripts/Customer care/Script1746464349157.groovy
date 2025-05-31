@@ -15,7 +15,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.CustomerCarePage
+
 import org.openqa.selenium.Keys as Keys
 
 
@@ -40,18 +42,13 @@ try {
 
 	String successMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Customer Care", "Customer care_Success message", GlobalVariable.FirstRowNo)
 
-	//insert test data in test fields
-	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer name'), customerName)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer email'), customerEmail)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer phone'), customerPhone)
-
-	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Message'), message)
+	CustomerCarePage customrCare = new CustomerCarePage()
+	
+	customrCare.fillOutCustomerForm(customerName, customerEmail, customerPhone, successMessage)
 
 	//click on send button
-	WebUI.click(findTestObject('Object Repository/Customer care/Send to customer care button'))
-
+	CustomKeywords.'keywordContainer.PageBaseKeyword.clickOnbutton'(findTestObject('Object Repository/Customer care/Send to customer care button'))
+	
 	//validate test case is passed
 	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Customer care/Success message'), time, successMessage)
 

@@ -15,7 +15,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.LoginPage
+
 import org.openqa.selenium.Keys as Keys
 
 
@@ -30,13 +32,11 @@ try{
 	//wait till the portal loaded
 	WebUI.waitForPageLoad(10)
 
+	LoginPage loginPage = new LoginPage()
 
-	//login to app with the registered username & password
-	WebUI.sendKeys(findTestObject('Object Repository/Login/userName'), "madboly5")
+	loginPage.fillOutLoginInfo()
 
-	WebUI.sendKeys(findTestObject('Object Repository/Login/passWord'), "510520@Mm")
-
-	WebUI.click(findTestObject('Object Repository/Login/loginButton'))
+	CustomKeywords.'keywordContainer.PageBaseKeyword.clickOnbutton'(findTestObject('Object Repository/Login/loginButton'))
 
 	WebUI.waitForPageLoad(5)
 

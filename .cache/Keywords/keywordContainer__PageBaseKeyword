@@ -1,9 +1,14 @@
 {
-  "keywordFileContentHash": "47ADF7B3FBA68B19AB90C9B87200A677",
+  "keywordFileContentHash": "564737C59DEEC454665CA339040CC09B",
   "keywordClasses": [
     {
       "name": "keywordContainer.PageBaseKeyword",
       "keywordMethods": [
+        {
+          "name": "waitExplicitly",
+          "parameters": [],
+          "javadoc": ""
+        },
         {
           "name": "navigateToFeature",
           "parameters": [
@@ -460,11 +465,6 @@
               }
             }
           ],
-          "javadoc": ""
-        },
-        {
-          "name": "waitExplicitly",
-          "parameters": [],
           "javadoc": ""
         }
       ]

@@ -15,7 +15,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.ForgotLoginInfoPage
+
 import org.openqa.selenium.Keys as Keys
 
 int time = 5
@@ -45,26 +47,14 @@ try {
 	
 	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("", "", GlobalVariable)
 	
+	//initiate an object of ForgotLoginInfoPage class
+	ForgotLoginInfoPage forgotLoginInfo = new ForgotLoginInfoPage()
 	
-	//insert test data in test fields
-	WebUI.sendKeys(findTestObject('Object Repository/Register/First name'), firsName)
-	
-	WebUI.sendKeys(findTestObject('Object Repository/Register/Last name'), lastName)
-	
-	WebUI.sendKeys(findTestObject('Object Repository/Register/Adress'), address)
-	
-	WebUI.sendKeys(findTestObject('Object Repository/Register/City'), city)
-	
-	WebUI.sendKeys(findTestObject('Object Repository/Register/State'), state)
-	
-	WebUI.sendKeys(findTestObject('Object Repository/Register/Zip code'), zipCode)
-	
-	WebUI.sendKeys(findTestObject('Object Repository/Register/SSN'), ssn)
-	
+	//using the new object, call fillOutUserInfo method to fill out the user logon info
+	forgotLoginInfo.fillOutUserInfo(firsName, lastName, address, city, state, zipCode, ssn)
+		
 	//click on send button
-	WebUI.click(findTestObject('Object Repository/Forgot login info/Find my login info button'))
-	
-	
+	CustomKeywords.'keywordContainer.PageBaseKeyword.clickOnbutton'(findTestObject('Object Repository/Forgot login info/Find my login info button'))
 	
 }catch(Exception e) {
 	
