@@ -45,16 +45,18 @@ try {
 	
 	String ssn = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Sign up", "SSN", GlobalVariable.FirstRowNo)
 	
-	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("", "", GlobalVariable)
+	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Forgot Login Info", "Success Message", GlobalVariable.FirstRowNo)
 	
 	//initiate an object of ForgotLoginInfoPage class
 	ForgotLoginInfoPage forgotLoginInfo = new ForgotLoginInfoPage()
 	
 	//using the new object, call fillOutUserInfo method to fill out the user logon info
 	forgotLoginInfo.fillOutUserInfo(firsName, lastName, address, city, state, zipCode, ssn)
-		
-	//click on send button
-	CustomKeywords.'keywordContainer.PageBaseKeyword.clickOnbutton'(findTestObject('Object Repository/Forgot login info/Find my login info button'))
+	
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Forgot login info/Forgot login info_Success message'),
+		 time, 
+		 scenarioSuccessMessage)
+			
 	
 }catch(Exception e) {
 	

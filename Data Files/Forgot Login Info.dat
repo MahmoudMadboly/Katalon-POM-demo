@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataFileEntity>
    <description></description>
-   <name>Sign up</name>
+   <name>Forgot Login Info</name>
    <tag></tag>
    <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
-   <dataFileGUID>876c7b5c-b24b-43d3-8619-bc48b9b3d87a</dataFileGUID>
+   <dataFileGUID>e18a36a6-f353-4d04-9e72-8cf3f536acee</dataFileGUID>
    <dataSourceUrl>D:\Automation repo\Katalon POM demo_ParaSoft\Data Files\Test data.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>Sign up</sheetName>
+   <sheetName>Forgot Login Info</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>

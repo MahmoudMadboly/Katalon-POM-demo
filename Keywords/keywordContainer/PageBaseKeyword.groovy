@@ -48,7 +48,7 @@ public class PageBaseKeyword {
 	int time
 
 
-
+/*
 	//generic wait explicit mechanism
 	@Keyword
 	def waitExplicitly() {
@@ -56,7 +56,7 @@ public class PageBaseKeyword {
 		WebDriverWait wait = new WebDriverWait()
 
 		wait.until(ExpectedConditions)
-	}
+	}*/
 
 
 
@@ -144,28 +144,28 @@ public class PageBaseKeyword {
 		}
 	}
 
-
-	//check fields should be updated & update them either partially or fully
-	@Keyword
-	def updateProfileInfo(Map<String, String> profileData) {
-		Map<String, String> fields = [
-			"First name": profileData.get("firstName"),
-			"Last name": profileData.get("lastName"),
-			"Adress": profileData.get("address"),
-			"City": profileData.get("city"),
-			"State": profileData.get("state"),
-			"Zip code": profileData.get("zipCode"),
-			"Phone": profileData.get("phone")
-		]
-
-		fields.each { fieldName, fieldValue ->
-			if (fieldValue) {
-				TestObject fieldObject = findTestObject("Register/" + fieldName)
-				WebUI.clearText(fieldObject)
-				WebUI.setText(fieldObject, fieldValue)
-			}
-		}
-	}
+	/*
+	 //check fields should be updated & update them either partially or fully
+	 @Keyword
+	 def updateProfileInfo(Map<String, String> profileData) {
+	 Map<String, String> fields = [
+	 "First name": profileData.get("firstName"),
+	 "Last name": profileData.get("lastName"),
+	 "Adress": profileData.get("address"),
+	 "City": profileData.get("city"),
+	 "State": profileData.get("state"),
+	 "Zip code": profileData.get("zipCode"),
+	 "Phone": profileData.get("phone")
+	 ]
+	 fields.each { fieldName, fieldValue ->
+	 if (fieldValue) {
+	 TestObject fieldObject = findTestObject("Register/" + fieldName)
+	 WebUI.clearText(fieldObject)
+	 WebUI.setText(fieldObject, fieldValue)
+	 }
+	 }
+	 }
+	 */
 
 
 	//verify that test case is passed

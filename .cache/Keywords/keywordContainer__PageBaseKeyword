@@ -1,14 +1,9 @@
 {
-  "keywordFileContentHash": "564737C59DEEC454665CA339040CC09B",
+  "keywordFileContentHash": "CEDCE3E133607BD0D443DF0941DEAE7D",
   "keywordClasses": [
     {
       "name": "keywordContainer.PageBaseKeyword",
       "keywordMethods": [
-        {
-          "name": "waitExplicitly",
-          "parameters": [],
-          "javadoc": ""
-        },
         {
           "name": "navigateToFeature",
           "parameters": [
@@ -51,8 +46,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "storeInfo",
@@ -70,8 +64,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "getTestData",
@@ -115,8 +108,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "selectAcountIdBeforeFindTransactions",
@@ -134,8 +126,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "checkDataIfDate",
@@ -153,46 +144,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
-        },
-        {
-          "name": "updateProfileInfo",
-          "parameters": [
-            {
-              "name": "profileData",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.util.Map",
-                "unresolvedClassName": "Map",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [
-                  {
-                    "fullClassName": "java.lang.String",
-                    "unresolvedClassName": "String",
-                    "isArray": false,
-                    "isGnericsPlaceHolder": false,
-                    "hasImmutableClassName": false,
-                    "genericsTypes": [],
-                    "errorOnParsing": false
-                  },
-                  {
-                    "fullClassName": "java.lang.String",
-                    "unresolvedClassName": "String",
-                    "isArray": false,
-                    "isGnericsPlaceHolder": false,
-                    "hasImmutableClassName": false,
-                    "genericsTypes": [],
-                    "errorOnParsing": false
-                  }
-                ],
-                "errorOnParsing": false
-              }
-            }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "validateTestCaseIsPassed",
@@ -236,8 +188,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "loopInsideList",
@@ -268,8 +219,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "checkSiteMapScreenContent",
@@ -322,8 +272,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "verifyPortalRedirectionAndHeader",
@@ -445,8 +394,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "clickOnbutton",
@@ -464,11 +412,10 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         }
       ]
     }
   ],
-  "javadocParsed": true
+  "javadocParsed": false
 }

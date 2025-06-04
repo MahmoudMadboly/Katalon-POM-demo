@@ -18,6 +18,7 @@ import com.kms.katalon.core.webui.keyword.internal.WebUIAbstractKeyword
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 import keywordContainer.HelperKeywords
+import keywordContainer.UpdateAccountInfo
 
 import org.openqa.selenium.Keys as Keys
 
@@ -37,17 +38,24 @@ try{
 	
 	String successMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
 	
+	
+	UpdateAccountInfo updatePartialAccountInfo = new UpdateAccountInfo()
+	
+	
 	// Add only the fields you want to update
 	Map<String, String> partialUpdate = [
 		firstName: newFirsName,
 		lastName: newLastName
 	]
 	
-	CustomKeywords.'keywordContainer.PageBaseKeyword.updateProfileInfo'(partialUpdate)
 	
-	WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
+	updatePartialAccountInfo.updateProfileInfo(partialUpdate)
 	
-	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
+	
+	//CustomKeywords.'keywordContainer.PageBaseKeyword.updateProfileInfo'(partialUpdate)
+	
+	
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, successMessage)
 
 }catch(Exception e){
 

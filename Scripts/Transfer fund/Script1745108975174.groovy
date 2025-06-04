@@ -18,7 +18,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.TransferFundPage
+
 import org.openqa.selenium.Keys as Keys
 
 int time = 5
@@ -26,36 +28,24 @@ int time = 5
 
 try{
 
-	//step1: will enter to open transfer fund screen
-	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
+	//step1: will enter to open transfer fund screen	
+	CustomKeywords.'keywordContainer.PageBaseKeyword.navigateToFeature'(findTestObject('Object Repository/Transfer fund/Transfer fund button'), 
+		findTestObject('Object Repository/Transfer fund/Transfer fund heading'), 
+		time)
 	
-	//verify that i am in the right screen
-	//WebUI.verifyElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund heading'), time)
 	
 	String transfer_Amount = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Transfer fund","Transfer amount" , GlobalVariable.FirstRowNo)
 	
 	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Transfer fund","Transfer fund_success message" , GlobalVariable.FirstRowNo)
 	
-	//enter an amount to be transferred
-	WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), transfer_Amount)
+	TransferFundPage tranferFund = new TransferFundPage()
 	
-	//open from account list
-	WebUI.click(findTestObject('Object Repository/Transfer fund/From account list'))
-	 
-	//select the first account
-	WebUI.click(findTestObject('Object Repository/Transfer fund/Account option_1'))
-	
-	//open to account list
-	WebUI.click(findTestObject('Object Repository/Transfer fund/To account list'))
-	 
-	//select the newly created account
-	WebUI.click(findTestObject('Object Repository/Transfer fund/Account option_2'))
-	
-	//hit transfer button
-	WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer button'))
+	tranferFund.transferFund(transfer_Amount)
 	
 	//validate test case is passed
-	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), time, scenarioSuccessMessage)
+	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'),
+		 time, 
+		 scenarioSuccessMessage)
 	
 
 }catch(Exception e){

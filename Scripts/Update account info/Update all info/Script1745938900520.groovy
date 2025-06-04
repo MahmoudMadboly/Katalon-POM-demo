@@ -15,7 +15,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.UpdateAccountInfo
+
 import org.openqa.selenium.Keys as Keys
 
 int time = 5
@@ -44,6 +46,11 @@ try{
 	String newPhone = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Phone", GlobalVariable.SecondRowNo)
 
 	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
+	
+	//initatiate a new object of UpdateAccountInfo class
+	UpdateAccountInfo updateAllAccountInfo = new UpdateAccountInfo()
+	
+	
 
 	// Add only the fields you want to update
 	Map<String, String> fullUpdate = [
@@ -55,12 +62,15 @@ try{
 		zipCode: newZipCode,
 		phone: newPhone
 	]
+	
+	//call method updateProfileInfo to perform the update action
+	updateAllAccountInfo.updateProfileInfo(fullUpdate)
+	
 
-	//do partial update
+	/*
 	CustomKeywords.'keywordContainer.PageBaseKeyword.updateProfileInfo'(fullUpdate)
+	*/
 
-	//click on update button
-	WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
 
 	//validate test case is passed
 	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)

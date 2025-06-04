@@ -52,8 +52,9 @@ class NewTestListener {
 		WebUI.openBrowser('')
 
 		//get test data
-		String URl = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "End point", GlobalVariable.FirstRowNo)
-
+		String URl = CustomKeywords.'keywordContainer.PageBaseKeyword.getTestData'("General Data", "End point", GlobalVariable.FirstRowNo)
+		
+		
 		println "Opening browser..."
 
 		WebUI.navigateToUrl(URl)
@@ -64,9 +65,9 @@ class NewTestListener {
 
 
 			//if current test case id is sign up then skip login
-			if(testCaseID.contains("Register")) {
+			if(testCaseID.contains("Register") || testCaseID.contains("Forgot login info")) {
 
-				println("⏭ Skipping login for SignUp test case: $testCaseId")
+			//	println("⏭ Skipping login for SignUp test case: $testCaseId")
 
 			}else {
 

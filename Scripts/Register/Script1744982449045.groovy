@@ -78,7 +78,6 @@ try {
 
 	registerObject.fulfillRegisterForm(firsName, lastName, address, City, State, Zip_Code, phone, ssn, userName, confirmPass, confirmPass)
 
-	CustomKeywords.'keywordContainer.PageBaseKeyword.clickOnbutton'(findTestObject('Object Repository/Register/Save register'))
 
 	//validate that test case is passed
 	CustomKeywords.'keywordContainer.PageBaseKeyword.validateTestCaseIsPassed'(findTestObject('Object Repository/Register/Welcome message'), time, scenarioSuccessMessage)

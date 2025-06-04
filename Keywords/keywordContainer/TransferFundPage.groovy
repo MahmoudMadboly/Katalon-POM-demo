@@ -20,25 +20,28 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
 
-public class ForgotLoginInfoPage {
-
-	void fillOutUserInfo(String firsName,String lastName,String address,String city,String state,String zipCode,String ssn) {
-
-		//insert test data in test fields
-		WebUI.sendKeys(findTestObject('Object Repository/Register/First name'), firsName)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Register/Last name'), lastName)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Register/Adress'), address)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Register/City'), city)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Register/State'), state)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Register/Zip code'), zipCode)
-
-		WebUI.sendKeys(findTestObject('Object Repository/Register/SSN'), ssn)
-
-		WebUI.click(findTestObject('Object Repository/Forgot login info/Find my login info button'))
-	}
+public class TransferFundPage {
+	
+void transferFund(int amount) {
+	
+	//enter an amount to be transferred
+	WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), amount)
+	
+	//open from account list
+	WebUI.click(findTestObject('Object Repository/Transfer fund/From account list'))
+	 
+	//select the first account
+	WebUI.click(findTestObject('Object Repository/Transfer fund/Account option_1'))
+	
+	//open to account list
+	WebUI.click(findTestObject('Object Repository/Transfer fund/To account list'))
+	 
+	//select the newly created account
+	WebUI.click(findTestObject('Object Repository/Transfer fund/Account option_2'))
+	
+	//hit transfer button
+	WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer button'))
+	
+	}	
+	
 }
